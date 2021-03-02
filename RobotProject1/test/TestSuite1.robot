@@ -6,7 +6,7 @@ Suite Teardown    Log    I am inside Test Suite Teardown
 Test Setup    Log    Im inside Test Setup
 Test Teardown    Log    Im inside Test Teardown
 
-Default Tags    sanity
+Default Tags    test
 *** Test Cases ***
 MyFirstTest
     Log    Hello World...
