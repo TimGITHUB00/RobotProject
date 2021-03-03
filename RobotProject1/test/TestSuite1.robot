@@ -20,13 +20,11 @@ FirstSeleniumTest
     
 SampleLoginTest
     [Documentation]                This is a sample login test
-    Open Browser                   ${URL}                         chrome
-    Set Browser Implicit Wait      5
+    OpenLogin
     LoginKW
-    Click Element                  id=welcome
-    Click Element                  link=Logout
+    ClickElements2
     SleepCloseLog
-    Log                            This test was executed by %{username} on %{os}
+    LogData
     
 *** Variables ***
 ${jimms}    https://www.jimms.fi
@@ -34,6 +32,10 @@ ${URL}    https://opensource-demo.orangehrmlive.com/
 @{CREDENTIALS}      Admin             admin123
 
 *** Keywords ***
+OpenLogin
+    Open Browser                   ${URL}                         chrome
+    Set Browser Implicit Wait      5
+    
 LoginKW
     Input Text          id=txtUsername    @{CREDENTIALS}[0]
     Input Password      id=txtPassword    @{CREDENTIALS}[1]
@@ -59,3 +61,10 @@ Sort
 OpenJimms
     Open Browser                   ${jimms}    chrome
     Set Browser Implicit Wait      5
+
+ClickElements2                     
+    Click Element                  id=welcome
+    Click Element                  link=Logout
+    
+LogData
+    Log    This test was executed by %{username} on %{os}
