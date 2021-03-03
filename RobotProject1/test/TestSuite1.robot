@@ -14,9 +14,9 @@ MyFirstTest
 FirstSeleniumTest
     Open Browser                   https://www.jimms.fi    chrome
     Set Browser Implicit Wait      5
-    Input Text                     name=q                  i5-9400F
-    Press Keys                     name=q                  ENTER
+    SearchProduct
     Select From List By Label      class:sortselect        Hinta (Pienin-Suurin)
+    ClickElements
     Sleep                          2
     Close Browser
     Log                            Test Completed
@@ -41,3 +41,12 @@ LoginKW
     Input Text          id=txtUsername    @{CREDENTIALS}[0]
     Input Password      id=txtPassword    @{CREDENTIALS}[1]
     Click Button        id=btnLogin
+    
+SearchProduct
+    Input Text                     name=q                  i5-9400F
+    Press Keys                     name=q                  ENTER
+    
+ClickElements
+    Click Element                  partial link:i5-9400F
+    Click Element                  partial link:Tuotelinkit
+    Click Element                  partial link:tuotesivu
