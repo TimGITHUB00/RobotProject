@@ -12,14 +12,11 @@ MyFirstTest
     Log    Hello World...
     
 FirstSeleniumTest
-    Open Browser                   https://www.jimms.fi    chrome
-    Set Browser Implicit Wait      5
+    OpenJimms
     SearchProduct
-    Select From List By Label      class:sortselect        Hinta (Pienin-Suurin)
+    Sort
     ClickElements
-    Sleep                          2
-    Close Browser
-    Log                            Test Completed
+    SleepCloseLog
     
 SampleLoginTest
     [Documentation]                This is a sample login test
@@ -28,11 +25,11 @@ SampleLoginTest
     LoginKW
     Click Element                  id=welcome
     Click Element                  link=Logout
-    Close Browser
-    Log                            Test Completed
+    SleepCloseLog
     Log                            This test was executed by %{username} on %{os}
     
 *** Variables ***
+${jimms}    https://www.jimms.fi
 ${URL}    https://opensource-demo.orangehrmlive.com/
 @{CREDENTIALS}      Admin             admin123
 
@@ -50,3 +47,15 @@ ClickElements
     Click Element                  partial link:i5-9400F
     Click Element                  partial link:Tuotelinkit
     Click Element                  partial link:tuotesivu
+    
+SleepCloseLog
+    Sleep                          2
+    Close Browser
+    Log                            Test Completed
+    
+Sort
+    Select From List By Label      class:sortselect        Hinta (Pienin-Suurin)
+    
+OpenJimms
+    Open Browser                   ${jimms}    chrome
+    Set Browser Implicit Wait      5
